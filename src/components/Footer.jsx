@@ -25,10 +25,10 @@ function Footer() {
           </form>
         </div>
       </section>
-      <div class='footer-logo'>
+      <div className='footer-logo'>
         <Link to='/' className='social-logo'>
           Patrick Shepherd
-          <i class='fab fa-typo3' />
+          <i className='fab fa-typo3' />
         </Link>
       </div>
     </div>

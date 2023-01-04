@@ -16,6 +16,12 @@
   border: 1px solid var(--primary);
 }
 
+.btn--white {
+  background-color: var(--primary);
+  color: #242424;
+  border: 1px solid var(--primary);
+}
+
 .btn--outline {
   background-color: transparent;
   color: #fff;
@@ -40,4 +46,8 @@
   background: #fff;
   color: #242424;
   transition: 250ms;
+}
+
+.btn--white:hover {
+  box-shadow: 0px 0px 20px 2px rgba(255, 255, 255, 0.694);
 }

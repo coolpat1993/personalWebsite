@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { Button } from './Button';
 import './HeroSection.css';
-import video from '../videos/video-2.mp4'
+import video from '../videos/video-1.mp4'
 
 function HeroSection() {
   return (
@@ -20,7 +20,7 @@ function HeroSection() {
         </Button>
         <Button
           className='btns'
-          buttonStyle='btn--primary'
+          buttonStyle='btn--white'
           buttonSize='btn--large'
         >
           RANDOM PROJECT
