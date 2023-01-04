@@ -22,9 +22,8 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
-          onClick={console.log('hey')}
         >
-          RANDOM PROJECT <i className='far fa-play-circle' />
+          RANDOM PROJECT
         </Button>
       </div>
     </div>

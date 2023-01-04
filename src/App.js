@@ -7,6 +7,7 @@ import Cv from "./components/pages/Cv";
 import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
 import Footer from "./components/Footer";
+import FourOhFour from "./components/pages/FourOhFour";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/cv" element={<Cv />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/*" element={<FourOhFour />} />
         </Routes>
         <Footer />
       </Router>
