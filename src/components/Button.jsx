@@ -31,15 +31,23 @@ export const Button = ({
             {children}
           </button>
         </Link> :
-        <Link to={`/${children.replace(/\s/g, '').toLowerCase()}`} className='btn-mobile'>
-          <button
-            className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-            onClick={onClick}
-            type={type}
-          >
-            {children}
-          </button>
-        </Link>
+        children.replace(/\s/g, '').toLowerCase() === 'home' ?
+          <Link to='/' className='btn-mobile'>
+            <button
+              className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+            >
+              {children}
+            </button>
+          </Link> :
+          <Link to={`/${children.replace(/\s/g, '').toLowerCase()}`} className='btn-mobile'>
+            <button
+              className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+              onClick={onClick}
+              type={type}
+            >
+              {children}
+            </button>
+          </Link>
       }
     </>
   );
