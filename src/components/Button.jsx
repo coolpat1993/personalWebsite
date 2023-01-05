@@ -19,34 +19,37 @@ export const Button = ({
 
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
+  function getRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    const item = arr[randomIndex];
+    return item;
+  }
+
+  const projects = [1, 'hello', 5, 8];
+
+  function buttonDefaults() {
+    return (<button
+      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+      onClick={onClick}
+      type={type}
+    >
+      {children}
+    </button>)
+  }
 
 
   return (
     <>
       {children.replace(/\s/g, '').toLowerCase() === 'randomproject' ?
-        <Link to={`/${children.replace(/\s/g, '').toLowerCase()}${Math.floor(Math.random() * 10) + 1}`} className='btn-mobile'>
-          <button
-            className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-          >
-            {children}
-          </button>
+        <Link to={`/${getRandomItem(projects)}`} className='btn-mobile'>
+          {buttonDefaults()}
         </Link> :
         children.replace(/\s/g, '').toLowerCase() === 'home' ?
           <Link to='/' className='btn-mobile'>
-            <button
-              className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-            >
-              {children}
-            </button>
+            {buttonDefaults()}
           </Link> :
           <Link to={`/${children.replace(/\s/g, '').toLowerCase()}`} className='btn-mobile'>
-            <button
-              className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-              onClick={onClick}
-              type={type}
-            >
-              {children}
-            </button>
+            {buttonDefaults()}
           </Link>
       }
     </>
