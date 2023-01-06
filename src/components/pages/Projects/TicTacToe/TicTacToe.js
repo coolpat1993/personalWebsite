@@ -101,7 +101,7 @@ function TicTacToe() {
     setThinking(true);
   }
 
-  function handleSquareClick(index) {
+  function handleSquareClick(index, e) {
     if (currentTurn === "player" && winner === null) {
       let newSquares = squares;
       if (newSquares[index] !== "o" && newSquares[index] !== "x") {
@@ -114,9 +114,9 @@ function TicTacToe() {
   }
 
   function handleEnter(e) {
-    if(e.target.innerText !== 'x' && e.target.innerText !== 'o'){
-    e.target.style.background = "red";
-    console.log(e.target.innerText);
+    if (e.target.innerText !== "x" && e.target.innerText !== "o") {
+      e.target.style.background = "#4caf50";
+      // console.log(e.target.innerText);
     }
   }
 
@@ -152,7 +152,31 @@ function TicTacToe() {
       {!!winner && winner === "d" && (
         <div className="result red">You DREW!</div>
       )}
-      <button onClick={() => restart()}>restart</button>
+      <button className="button" onClick={() => restart()}>
+        restart
+      </button>
+      <br></br>
+      <h1>Tic-tac-toe</h1>
+      <p>
+        This code is my game of Tic-Tac-Toe implemented in JavaScript using the
+        React library. It has several state variables: squares, which represents
+        the current state of the Tic-Tac-Toe board; winner, which stores the
+        winner of the game (or null if the game is still in progress);
+        currentTurn, which stores the current turn ("player" or "computer"); and
+        thinking, which is a boolean that determines whether the computer is
+        currently thinking about its next move. The game has a useEffect hook
+        that runs some code whenever the squares, currentTurn, thinking, or
+        winner state variables change. This code checks for a winner or a draw,
+        and if the game is still in progress, it makes the computer's move if it
+        is the computer's turn and thinking is false. The game also has a
+        restart function that resets the game by setting all the state variables
+        back to their default values. The game board is made up of Square
+        components, which are buttons that display the value of the square and
+        have an onClick event handler that updates the squares array with an "x"
+        at the clicked index and sets the currentTurn to "computer". The
+        computer's move is determined by looking for a winning move or a move to
+        block the player from winning, or by choosing a random empty square.{" "}
+      </p>
     </main>
   );
 }

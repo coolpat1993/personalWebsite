@@ -5,6 +5,7 @@ body {
 main {
   width: 300px;
   margin: 50px auto 0;
+  text-align: center;
 }
 div.board {
   display: grid;
@@ -20,25 +21,8 @@ div.square {
   font-size: 4rem;
   text-align: center;
 }
-
-div.square:hover {
-  width: 100px;
-  height: 100px;
-  border: 2px solid rgb(255, 255, 255);
-  background-color: #5a5;
-  box-sizing: border-box;
-  font-size: 4rem;
-  text-align: center;
-}
-
-div.squareMover {
-  width: 100px;
-  height: 100px;
-  background-color: #5a5;
-  border: 2px solid #fff;
-  box-sizing: border-box;
-  font-size: 4rem;
-  text-align: center;
+h1, p{
+  text-align: left;
 }
 
 div.result {
@@ -46,8 +30,19 @@ div.result {
   padding: 10px;
 }
 div.result.green {
-  background-color: #5a5;
+  background-color: #4caf50;
 }
 div.result.red {
   background-color: #a55;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

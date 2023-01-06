@@ -4,7 +4,6 @@ function Square(props) {
       <div className={props.className} {...props}>
         {props.x ? "x" : props.o ? "o" : ""}
       </div>
-      {console.log(props)}
     </>
   );
 }
