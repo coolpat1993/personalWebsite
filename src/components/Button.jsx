@@ -25,7 +25,7 @@ export const Button = ({
     return item;
   }
 
-  const projects = [1, 'hello', 5, 8];
+  const projects = ['tic-tac-toe', 'nasaApp'];
 
   function buttonDefaults() {
     return (<button

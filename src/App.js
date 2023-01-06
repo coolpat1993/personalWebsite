@@ -8,6 +8,8 @@ import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
 import Footer from "./components/Footer";
 import FourOhFour from "./components/pages/FourOhFour";
+import MeteorList from "./components/pages/Projects/NasaApi/meteorList";
+import TicTacToe from "./components/pages/Projects/TicTacToe/TicTacToe";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/*" element={<FourOhFour />} />
+          <Route path="/nasaApp" element={<MeteorList />} />
+          <Route path="/tic-tac-toe" element={<TicTacToe />} />
         </Routes>
         <Footer />
       </Router>

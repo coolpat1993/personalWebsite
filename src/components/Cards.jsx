@@ -11,15 +11,15 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-9.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Adventure'
-              path='/services'
+              text='View NASA Metrorite Landing sites and data using the official NASA Api'
+              label='NASA Metrorite Landing sites'
+              path='/nasaApp'
             />
             <CardItem
               src='images/img-2.jpg'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Luxury'
-              path='/services'
+              text='React Tic-Tac-Toe game'
+              label='Tic-tac-toe'
+              path='/tic-tac-toe'
             />
             <CardItem
               src='images/img-2.jpg'

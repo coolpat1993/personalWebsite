@@ -1,0 +1,11 @@
+.scatterMap {
+    background-image: url(./world.svg);
+    background-size: 100vw 100hw;
+    background-position-x: 50px;
+    /* background-position-y: -28px; */
+    background-color: #cccccc;
+  }
+  
+  .recharts-line .recharts-curve {
+    stroke: none;
+  }
