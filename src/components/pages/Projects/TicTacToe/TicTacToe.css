@@ -21,8 +21,16 @@ div.square {
   font-size: 4rem;
   text-align: center;
 }
-h1, p{
+h1,
+p {
   text-align: left;
+  width: 40hw;
+}
+.textBox {
+  width: 40vw;
+  text-align: center;
+  margin: 30px auto 0;
+  padding-bottom: 20px;
 }
 
 div.result {

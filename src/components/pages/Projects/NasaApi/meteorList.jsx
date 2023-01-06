@@ -27,25 +27,27 @@ export default function MeteorList() {
     return (
         <section id="meteor-list">
             <Map data={meteor} />
-            {meteor.map(
-                ({
-                    id,
-                    name: meteorName,
-                    year,
-                    geolocation: { latitude, longitude },
-                }) => {
-                    return (
-                        <MeteorCard
-                            key={id}
-                            keys={id}
-                            meteorName={meteorName}
-                            year={year}
-                            latitude={latitude}
-                            longitude={longitude}
-                        />
-                    );
-                }
-            )}
+            <div className="meteor-card-container">
+                {meteor.map(
+                    ({
+                        id,
+                        name: meteorName,
+                        year,
+                        geolocation: { latitude, longitude },
+                    }) => {
+                        return (
+                            <MeteorCard
+                                key={id}
+                                keys={id}
+                                meteorName={meteorName}
+                                year={year}
+                                latitude={latitude}
+                                longitude={longitude}
+                            />
+                        );
+                    }
+                )}
+            </div>
         </section>
     );
 }

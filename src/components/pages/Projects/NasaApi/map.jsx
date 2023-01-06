@@ -15,10 +15,10 @@ const Map = (props) => {
     const data = props.data;
 
     return (
-        <div style={{ textAlign: "center" }}>
-            <h1>Map</h1>
-            <div className="App">
-                <ScatterChart className="scatterMap" width={2000} height={857}>
+        <div className="map-container">
+            <h1 className="map-title">Map</h1>
+            <div className="map-content">
+                <ScatterChart width={2000} height={857}>
                     <CartesianGrid />
                     <ZAxis type="string" dataKey="name" />
                     <XAxis

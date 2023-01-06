@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import FourOhFour from "./components/pages/FourOhFour";
 import MeteorList from "./components/pages/Projects/NasaApi/meteorList";
 import TicTacToe from "./components/pages/Projects/TicTacToe/TicTacToe";
+import ConnectFour from "./components/pages/Projects/ConnectFour/ConnectFour";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/*" element={<FourOhFour />} />
           <Route path="/nasaApp" element={<MeteorList />} />
           <Route path="/tic-tac-toe" element={<TicTacToe />} />
+          <Route path="/con4" element={<ConnectFour />} />
         </Routes>
         <Footer />
       </Router>
