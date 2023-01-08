@@ -11,6 +11,8 @@ import FourOhFour from "./components/pages/FourOhFour";
 import MeteorList from "./components/pages/Projects/NasaApi/meteorList";
 import TicTacToe from "./components/pages/Projects/TicTacToe/TicTacToe";
 import ConnectFour from "./components/pages/Projects/ConnectFour/ConnectFour";
+import Portfolio from "./components/pages/Portfolio/Portfolio";
+import HoursCalculator from "./components/HoursCalculator";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/nasaApp" element={<MeteorList />} />
           <Route path="/tic-tac-toe" element={<TicTacToe />} />
           <Route path="/con4" element={<ConnectFour />} />
+          <Route path="/port" element={<Portfolio />} />
+          <Route path="/hoursCalc" element={<HoursCalculator />} />
         </Routes>
         <Footer />
       </Router>
