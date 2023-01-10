@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+import PDFJS from 'pdfjs-dist';
 
+
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const options = {
   cMapUrl: 'cmaps/',
   cMapPacked: true,
   standardFontDataUrl: 'standard_fonts/',
 };
+
+console.log(PDFJS)
+
 
 function calculateHours(hoursString) {
   let hours = hoursString.trim().split(" ");
@@ -25,15 +33,22 @@ function calculateHours(hoursString) {
 
 function HoursCalculator() {
   const [file, setFile] = useState('./sample.pdf');
-  const [numPages, setNumPages] = useState(null);
+  const [pdfText, setPdfText] = useState('');
 
   function onFileChange(event) {
     setFile(event.target.files[0]);
+    PDFJS.getDocument(file).promise.then(function (pdfDocument) {
+      pdfDocument.getTextContent().then(function (textContent) {
+        let text = "";
+        textContent.items.forEach(function (item) {
+          text += item.str + " ";
+        });
+        setPdfText(text);
+      });
+    });
   }
 
-  function onDocumentLoadSuccess({ numPages: nextNumPages }) {
-    setNumPages(nextNumPages);
-  }
+
 
   const [hoursString, setHoursString] = useState("");
   const [totalHours, setTotalHours] = useState(0);
@@ -58,21 +73,21 @@ function HoursCalculator() {
         <button type="submit">Calculate</button>
         <p>Total hours: {totalHours}</p>
       </form>
+
       <div className="Example">
-        <header>
-          <h1>react-pdf sample page</h1>
-        </header>
         <div className="Example__container">
           <div className="Example__container__load">
             <label htmlFor="file">Load from file:</label>{' '}
             <input onChange={onFileChange} type="file" />
           </div>
           <div className="Example__container__document">
-            <Document file={file} onLoadSuccess={onDocumentLoadSuccess} options={options}>
-              {Array.from(new Array(numPages), (el, index) => (
+            <Document file={file} options={options}>
+              {Array.from(new Array(1), (el, index) => (
                 <Page key={`page_${index + 1}`} pageNumber={index + 1} />
               ))}
+              {console.log({ options })}
             </Document>
+            <div>{pdfText}</div>
           </div>
         </div>
       </div>
