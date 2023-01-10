@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import pdfjs from 'pdfjs-dist/webpack';
+const pdf = require('pdf-parse');
+const fs = require('fs');
+
+
+
 
 function calculateHours(hoursString) {
   let hours = hoursString.trim().split(" ");
@@ -15,23 +19,28 @@ function calculateHours(hoursString) {
 }
 
 
-
 function HoursCalculator() {
-  const [pdfText, setPdfText] = useState('');
 
-  const handleFileInput = async (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const pdfData = new Uint8Array(e.target.result);
-      const pdf = await pdfjs.getDocument(pdfData).promise;
-      const page = await pdf.getPage(1);
-      const textContent = await page.getTextContent();
-      setPdfText(textContent.items.map((item) => item.str).join(''));
-    };
-    reader.readAsArrayBuffer(file);
-  };
 
+  let dataBuffer = fs.readFileSync('./15th-JAN-2022.pdf');
+
+  pdf(dataBuffer).then(function (data) {
+
+    // number of pages
+    console.log(data.numpages);
+    // number of rendered pages
+    console.log(data.numrender);
+    // PDF info
+    console.log(data.info);
+    // PDF metadata
+    console.log(data.metadata);
+    // PDF.js version
+    // check https://mozilla.github.io/pdf.js/getting_started/
+    console.log(data.version);
+    // PDF text
+    console.log(data.text);
+
+  });
 
   const [hoursString, setHoursString] = useState("");
   const [totalHours, setTotalHours] = useState(0);
@@ -44,11 +53,10 @@ function HoursCalculator() {
     event.preventDefault();
     setTotalHours(calculateHours(hoursString));
   };
-  console.log(pdfText)
   return (
     <>
-      <input type="file" onChange={handleFileInput} accept="application/pdf" />
-      <div>{pdfText}</div>
+      {/* <input type="file" accept="application/pdf" onChange={handleFileChange} /> */}
+
       <form onSubmit={handleSubmit}>
         <label>
           Enter your hours:
