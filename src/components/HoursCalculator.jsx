@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-const pdf = require('pdf-parse');
-const fs = require('fs');
-
-
 
 
 function calculateHours(hoursString) {
@@ -21,26 +17,6 @@ function calculateHours(hoursString) {
 
 function HoursCalculator() {
 
-
-  let dataBuffer = fs.readFileSync('./15th-JAN-2022.pdf');
-
-  pdf(dataBuffer).then(function (data) {
-
-    // number of pages
-    console.log(data.numpages);
-    // number of rendered pages
-    console.log(data.numrender);
-    // PDF info
-    console.log(data.info);
-    // PDF metadata
-    console.log(data.metadata);
-    // PDF.js version
-    // check https://mozilla.github.io/pdf.js/getting_started/
-    console.log(data.version);
-    // PDF text
-    console.log(data.text);
-
-  });
 
   const [hoursString, setHoursString] = useState("");
   const [totalHours, setTotalHours] = useState(0);
